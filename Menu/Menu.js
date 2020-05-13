@@ -20,6 +20,8 @@ let menuItems = [
 
   The 'menuMaker' takes an array as its only argument.
 
+
+
   Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array. 
   Add those items to the <ul>
 
@@ -31,3 +33,25 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned markup to the DOM.
 */
+let menuParent = document.querySelector('header')
+  menuItems.forEach((menuElement) =>{
+    menuParent.appendChild(menuMaker(menuItems))
+  })
+  
+  menuMaker(eachMenuItem){
+    let mainMenu = document.createElement('div')
+    let listedItems = document.createElement('ul')
+
+    mainMenu.appendChild(listedItems)
+    
+
+
+
+  }
+
+    //Step 4
+    let allArticles = document.querySelector('.articles')
+    data.forEach((articleData) => {
+      allArticles.appendChild(articleMaker(articleData.title, articleData.date, articleData.firstParagraph, articleData.secondParagraph, articleData.thirdParagraph))
+    })
+
