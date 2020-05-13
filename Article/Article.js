@@ -101,7 +101,14 @@ const data = [
 
   Hint: You will need to use createElement more than once here!
 
-  Your function should take either an object as its one argument, or 5 separate arguments mapping to each piece of the data object above.
+  Your function should take either an object as its one argument, or 5 separate arguments mapping to each piece of the data object above.*/
+  
+  //
+  let allArticles = document.querySelector('.articles')
+    data.forEach((article) =>{
+      allArticles.appendChild(detailOfArticle)
+    })
+  /*
 
   Step 2: Add an event listener to the expandButton span. This listener should toggle the class 'article-open' on the 'article' div.
 
