@@ -33,25 +33,35 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned markup to the DOM.
 */
-let menuParent = document.querySelector('header')
-  menuItems.forEach((menuElement) =>{
-    menuParent.appendChild(menuMaker(menuItems))
-  })
-  
-  menuMaker(eachMenuItem){
-    let mainMenu = document.createElement('div')
-    let listedItems = document.createElement('ul')
+// header class selection and appending  to menuheader
+let menuHeader = document.querySelector('.header')
+// menu-button class selection
+let mnuBtn = document.querySelector('.menu-button')
 
-    mainMenu.appendChild(listedItems)
+  menuHeader.appendChild(menuMaker(menuItems))
+  
+  function menuMaker(eachMenuItem){
+    let mainMenu = document.createElement('div')
+    let listedMnuItems = document.createElement('ul')
+
+    mainMenu.appendChild(listedMnuItems)
+
+    mainMenu.classList.add('menu')
+
+    eachMenuItem.forEach(mnuItem => {
+      let x = document.createElement('li')
+        x.textContent = mnuItem
+        listedMnuItems.appendChild(x)
+    })
     
 
-
-
+    //menu-button event
+    mnuBtn.addEventListener('click', () =>{
+    // panelContent.classList.toggle('toggle-on')
+      mainMenu.classList.toggle('menu--open')
+    })
+    
+return mainMenu
   }
 
-    //Step 4
-    let allArticles = document.querySelector('.articles')
-    data.forEach((articleData) => {
-      allArticles.appendChild(articleMaker(articleData.title, articleData.date, articleData.firstParagraph, articleData.secondParagraph, articleData.thirdParagraph))
-    })
-
+   
