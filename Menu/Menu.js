@@ -33,35 +33,45 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned markup to the DOM.
 */
+
+
+
 // header class selection and appending  to menuheader
 let menuHeader = document.querySelector('.header')
-// menu-button class selection
+// Step 3 menu-button class selection
 let mnuBtn = document.querySelector('.menu-button')
 
   menuHeader.appendChild(menuMaker(menuItems))
   
-  function menuMaker(eachMenuItem){
-    let mainMenu = document.createElement('div')
-    let listedMnuItems = document.createElement('ul')
 
-    mainMenu.appendChild(listedMnuItems)
+// Step 1 and 5 menuMaker fcuntion
+function menuMaker(eachMenuItem){
+  let mainMenu = document.createElement('div')
+  let listedMnuItems = document.createElement('ul')
 
-    mainMenu.classList.add('menu')
+  mainMenu.appendChild(listedMnuItems)
 
-    eachMenuItem.forEach(mnuItem => {
-      let x = document.createElement('li')
-        x.textContent = mnuItem
-        listedMnuItems.appendChild(x)
-    })
-    
+  // Step 5 Class menu given to mainMenu'div'
+  mainMenu.classList.add('menu')
 
-    //menu-button event
-    mnuBtn.addEventListener('click', () =>{
-    // panelContent.classList.toggle('toggle-on')
-      mainMenu.classList.toggle('menu--open')
-    })
-    
+  // Step 2 and 6 Creating list items and appending
+  eachMenuItem.forEach(mnuItem => {
+    let listItem = document.createElement('li')
+    listItem.textContent = mnuItem
+      listedMnuItems.appendChild(listItem)
+  })
+  
+
+  // Step 4 and 3 menu-button event
+  mnuBtn.addEventListener('click', () =>{
+  // panelContent.classList.toggle('toggle-on')
+    mainMenu.classList.toggle('menu--open')
+  })
 return mainMenu
-  }
+}
+
+
+
+
 
    
