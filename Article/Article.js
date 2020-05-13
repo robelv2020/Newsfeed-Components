@@ -85,6 +85,16 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Components I',
+    date: 'May 20, 2020',
+    firstParagraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, distinctio molestias minima in animi facere quae veritatis quis voluptatibus harum adipisci corporis odio ea. Eum quae ex natus autem doloremque.',
+    
+    secondParagraph: 'Ipsum dolor sit amet, consectetur adipisicing elit. Magnam, blanditiis repellendus eaque dolore praesentium possimus facilis recusandae consequatur rerum, voluptas velit fuga iste reprehenderit, culpa quos ipsa non quo? Praesentium suscipit qui, hic odio necessitatibus magni, vitae iusto quasi minus enim dignissimos quaerat omnis eaque.',
+    
+    thirdParagraph : 'dolor sit, amet consectetur adipisicing elit. Voluptas, quos natus iusto cumque vitae, accusamus iste quibusdam ex ipsam reprehenderit repellat doloremque!'
+
   }
 ];
 
@@ -102,12 +112,66 @@ const data = [
   Hint: You will need to use createElement more than once here!
 
   Your function should take either an object as its one argument, or 5 separate arguments mapping to each piece of the data object above.*/
+
+  // Function detailOfArticle takes 5 arguments and maps them
+  function articleMaker(titleArt , dateArt , firstArtPar , secondArtPar , thirdArtPar){
+      // Main Article for Div
+      let mainArticle = document.createElement('div')
+      // Title OF Article
+      let titleArticle = document.createElement('h2')
+      // Date Article published
+      let dateArticle = document.createElement('p')
+      // First Paragraph
+      let firstArtParagraph = document.createElement('p')  
+      // Second Paragraph
+      let secondArtParagraph = document.createElement('p')  
+      //Third paragraph
+      let thirdArtParagraph = document.createElement('p')
+      //Expand button
+      let Expandbtn = document.createElement('span')
   
-  //
-  let allArticles = document.querySelector('.articles')
-    data.forEach((article) =>{
-      allArticles.appendChild(detailOfArticle)
+  // HTML structure by making elements children of div
+      mainArticle.appendChild(titleArticle)
+      mainArticle.appendChild(dateArticle)
+      mainArticle.appendChild(firstArtParagraph)
+      mainArticle.appendChild(secondArtParagraph)
+      mainArticle.appendChild(thirdArtParagraph)
+      mainArticle.appendChild(Expandbtn)
+
+  // inserting the detail from array
+      titleArticle.textContent = titleArt
+      dateArticle.textContent = dateArt
+      firstArtParagraph.textContent = firstArtPar
+      secondArtParagraph.textContent = secondArtPar
+      thirdArtParagraph.textContent = thirdArtPar
+      Expandbtn.textContent = 'Expand'
+
+  // Adding the required css class
+      // panel.classList.add('panel')
+      // panelBar.classList.add('panel-bar')
+      // panelContent.classList.add('panel-content')
+
+      mainArticle.classList.add('article')
+      Expandbtn.classList.add('expandButton')
+      dateArticle.classList.add('date')
+      
+  // Step 2 Expand button event defined
+      Expandbtn.addEventListener('click', () => {
+        //mainArticle.classList.replace('article-open')
+        mainArticle.classList.toggle('article-open')
     })
+      //Step 3
+      return mainArticle; 
+
+  }
+  
+  //Step 4
+  let allArticles = document.querySelector('.articles')
+    data.forEach((articleData) => {
+      allArticles.appendChild(articleMaker(articleData.title, articleData.date, articleData.firstParagraph, articleData.secondParagraph, articleData.thirdParagraph))
+    })
+
+    
   /*
 
   Step 2: Add an event listener to the expandButton span. This listener should toggle the class 'article-open' on the 'article' div.
