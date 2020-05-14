@@ -48,11 +48,11 @@ let mnuBtn = document.querySelector('.menu-button')
 function menuMaker(eachMenuItem){
   let mainMenu = document.createElement('div')
   let listedMnuItems = document.createElement('ul')
+    // Step 5 Class menu given to mainMenu'div'
+    mainMenu.classList.add('menu')
+    mainMenu.appendChild(listedMnuItems)
 
-  mainMenu.appendChild(listedMnuItems)
 
-  // Step 5 Class menu given to mainMenu'div'
-  mainMenu.classList.add('menu')
 
   // Step 2 and 6 Creating list items and appending
   eachMenuItem.forEach(mnuItem => {

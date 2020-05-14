@@ -155,14 +155,18 @@ const data = [
       Expandbtn.classList.add('expandButton')
       dateArticle.classList.add('date')
       
+      // For animation of button new class made and used
+      Expandbtn.classList.add('large-button')
+      
+      
   // Step 2 Expand button event defined
       Expandbtn.addEventListener('click', () => {
         //mainArticle.classList.replace('article-open')
         mainArticle.classList.toggle('article-open')
+        
     })
       //Step 3
       return mainArticle; 
-
   }
   
   //Step 4
