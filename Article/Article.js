@@ -87,6 +87,7 @@ const data = [
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   },
   {
+    //Step 5
     title: 'Components I',
     date: 'May 20, 2020',
     firstParagraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, distinctio molestias minima in animi facere quae veritatis quis voluptatibus harum adipisci corporis odio ea. Eum quae ex natus autem doloremque.',
@@ -113,7 +114,7 @@ const data = [
 
   Your function should take either an object as its one argument, or 5 separate arguments mapping to each piece of the data object above.*/
 
-  // Function detailOfArticle takes 5 arguments and maps them
+  // Step 1 Function detailOfArticle takes 5 arguments and maps them
   function articleMaker(titleArt , dateArt , firstArtPar , secondArtPar , thirdArtPar){
       // Main Article for Div
       let mainArticle = document.createElement('div')
@@ -163,7 +164,7 @@ const data = [
       Expandbtn.addEventListener('click', () => {
         //mainArticle.classList.replace('article-open')
         mainArticle.classList.toggle('article-open')
-        
+
     })
       //Step 3
       return mainArticle; 
